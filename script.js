@@ -15,10 +15,12 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         console.log(`Draw! ${playerSelection} vs. ${computerSelection}`);
-    } else if (playerSelection === "Rock" && computerSelection === "Paper" || playerSelection === "Paper" && computerSelection === "Scissors" || playerSelection === "Scissors" && computerSelection === "Rock") {
+    } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
+        playerSelection === "Paper" && computerSelection === "Scissors" ||
+        playerSelection === "Scissors" && computerSelection === "Rock") {
         computerScore++;
         console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors" || playerSelection === "Paper" && computerSelection === "Rock" || playerSelection === "Scissors" && computerSelection === "Paper") {
+    } else {
         userScore++;
         console.log(`You win! ${playerSelection} beats ${computerSelection}`)
     }
@@ -27,7 +29,9 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     for (let i = 1; i < 6; i++) {
         let userinput = prompt("Choose what to throw:", "'Rock', 'Paper' or 'Scissors'");
-        while (userinput.toLowerCase() !== "rock" && userinput.toLowerCase() !== "paper" && userinput.toLowerCase() !== "scissors") {
+        while (userinput.toLowerCase() !== "rock" &&
+            userinput.toLowerCase() !== "paper" &&
+            userinput.toLowerCase() !== "scissors") {
             userinput = prompt("Choose what to throw:", "'Rock', 'Paper' or 'Scissors'");
         }
         const playerSelection = userinput.slice(0, 1).toUpperCase() + userinput.slice(1).toLowerCase();
