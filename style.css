@@ -1,0 +1,94 @@
+html {
+    height: 100vh;
+}
+
+body {
+    background-color: #05E6F5;
+    font-family: 'Play', sans-serif, Helvetica, "Seoe UI", Tahoma;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    color: #4B4C50;
+}
+
+header {
+    padding-top: 2%;
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 800;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+
+
+.computer .img {
+    padding-bottom: 55%;
+}
+
+.player .img {
+    display: flex;
+    justify-content: center;
+    padding-top: 40%;
+    gap: 5px;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.player button:hover {
+    background-color: yellow;
+    border-radius: 10%;
+    cursor: pointer
+}
+
+.img {
+    max-height: auto;
+    max-width: 80px;
+}
+
+#reset {
+    margin: 0 auto;
+    margin-top: 2em;
+    background-color: #E62E6B;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    font-weight: 700 text-align: center;
+    padding: 5px 25px;
+    cursor: pointer;
+    color: white;
+    font-family: 'Play', sans-serif, Helvetica, "Seoe UI", Tahoma;
+}
+
+#reset:hover {
+    background-color: #FF6666;
+}
+
+footer p {
+    text-align: center;
+    bottom: 0;
+    color: gray;
+    padding-top: 10%;
+}

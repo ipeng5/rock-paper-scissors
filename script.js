@@ -1,5 +1,9 @@
 let userScore = 0;
 let computerScore = 0;
+let cScore = document.getElementById("cScore");
+let pScore = document.getElementById("pScore");
+let announceResult = document.getElementById("announceResult");
+const cImg = document.getElementById("cImg");
 
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
@@ -12,34 +16,61 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        console.log(`Draw! ${playerSelection} vs. ${computerSelection}`);
-    } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
-        playerSelection === "Paper" && computerSelection === "Scissors" ||
-        playerSelection === "Scissors" && computerSelection === "Rock") {
-        computerScore++;
-        console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    } else {
-        userScore++;
-        console.log(`You win! ${playerSelection} beats ${computerSelection}`)
-    }
-}
+const buttonRock = document.getElementById("rock").addEventListener("mouseup", () => {
+    playRound("Rock")
+});
+const buttonPaper = document.getElementById("paper").addEventListener("mouseup", () => {
+    playRound("Paper")
+});
+const buttonScissors = document.getElementById("scissors").addEventListener("mouseup", () => {
+    playRound("Scissors")
+});
 
-function game() {
-    for (let i = 1; i < 6; i++) {
-        let userinput = prompt("Choose what to throw:", "'Rock', 'Paper' or 'Scissors'");
-        while (userinput.toLowerCase() !== "rock" &&
-            userinput.toLowerCase() !== "paper" &&
-            userinput.toLowerCase() !== "scissors") {
-            userinput = prompt("Choose what to throw:", "'Rock', 'Paper' or 'Scissors'");
+
+function playRound(playerSelection) {
+    let computerSelection = getComputerChoice();
+    if (userScore < 5 && computerScore < 5) {
+        cImg.src = "./img/" + computerSelection.toLowerCase() + ".png";
+        if (playerSelection === computerSelection) {
+            announceResult.textContent = (`It's a tie! ${playerSelection} vs. ${computerSelection}`);
+        } else if (playerSelection === "Rock" && computerSelection === "Paper" ||
+            playerSelection === "Paper" && computerSelection === "Scissors" ||
+            playerSelection === "Scissors" && computerSelection === "Rock") {
+            computerScore++;
+            announceResult.textContent = (`You lose! ${computerSelection} beats ${playerSelection}`);
+            cScore.textContent = computerScore;
+        } else {
+            userScore++;
+            announceResult.textContent = (`You win! ${playerSelection} beats ${computerSelection}`);
+            pScore.textContent = userScore;
         }
-        const playerSelection = userinput.slice(0, 1).toUpperCase() + userinput.slice(1).toLowerCase();
-        const computerSelection = getComputerChoice();
-        console.log(`Round ${i}`);
-        playRound(playerSelection, computerSelection);
-        console.log(`Your score: ${userScore} vs. computer score: ${computerScore}`)
-    }
+    } else { endGame() }
 }
 
-game()
+function endGame() {
+    if (userScore === 5) {
+        announceResult.textContent = ("Congratulations! You won the game!")
+    } if (computerScore === 5) {
+        announceResult.textContent = ("You lost the game :(");
+    } announceResult.style.color = "#FF6666";
+}
+
+const reset = document.getElementById("reset")
+reset.addEventListener("mouseup", () => {
+    newGame()
+});
+
+function newGame() {
+    userScore = 0;
+    computerScore = 0;
+    announceResult.textContent = ("Click icon below to choose your weapon");
+}
+
+
+
+
+
+
+
+
+
