@@ -7,9 +7,11 @@
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Raleway:wght@800&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/scissors.png">
 </head>
 
 <body>
@@ -24,18 +26,16 @@
                 <h2 id="announceResult">Click icon below to choose your weapon</h2>
             </div>
 
-            <div id="computer">Computer score: <span id="cScore">0</span></div>
+            <div id="computer-score">Computer score: <span id="cScore"></span></div>
             <div class="player">
-                <div>Player score: <span id="pScore">0</span></div>
+                <div id="player-score">Player score: <span id="pScore"></span></div>
                 <div class="player img button">
                     <button id="rock"><img src="img/rock.png" class="img" alt="rock"></button>
                     <button id="paper"><img src="img/paper.png" class="img" alt="paper"></button>
                     <button id="scissors"><img src="img/scissors.png" class="img" alt="scissors"></button>
                 </div>
-
             </div>
             <div><button id="reset">RESET</button></div>
-
     </main>
     </footer>
     </div>
@@ -43,7 +43,6 @@
         <P>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="icons">Freepik</a> from <a
                 href="https://www.flaticon.com">www.flaticon.com</a></p>
     </footer>
-
 </body>
 
 </html>
